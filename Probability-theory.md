@@ -45,6 +45,73 @@ $ C_{m+n}^k = \sum_i^k{C_m^iC_n^{k-i}}$
 
 进一步的定义对于概率：概率空间由两个成分组成，S和P；S是一个样本空间，P是一个接受事件A的函数，一个作为输入的的映射，事件A是样本空间S的子集；P(A)在[0,1]之间；
 
-​	规则1：$P(\phi) = 0, p(S) = 1$
+​	公理1：$P(\varnothing) = 0, p(S) = 1$
 
-​	规则2：$P(A_1\cup A_2) = P(A_1) + P(A_2)$；前提A_1和A_2不相交，可以推广到更多个事件；
+​	公理2：$P(A_1\bigcup A_2) = P(A_1) + P(A_2)$；前提A_1和A_2不相交，可以推广到更多个事件；
+
+### Lecture 3
+
+生日问题：k个人中有两个人会是同一天生日的概率？前提只考虑一年365天的情况，且每个人的生日不与其他人的生日有关联。
+
+当k >= 365 的时候，概率为1；
+
+当k <365 的时候
+
+​	我们从它的反面考虑，如果k个人的生日都不为同一天的可能概率为$365\cdot364\cdot\cdot(365-k+1)/365^k$；
+
+​	所以 $1 - 365\cdot364\cdot\cdot(365-k+1)/365^k$ 是至少有两个人的生日为同一天的概率P(A)；
+
+此时可以得到一个与想象中不太一样的结果
+$$
+P(A) \approx
+\begin{cases}
+50.7\%   & \text{}k\text{=23}\\
+97\%     & \text{}k\text{=50}\\
+99.999\% & \text{}n\text{=100}
+\end{cases}
+$$
+虽然当P(A)=50.7%时，k=23，但是此时对于两个人的对数共有$C_{23}^2 = 23*22/2 = 253$ 对，实际上是对这些对人的生日进行比较；
+
+由上一节课的两个公理可以进而推出许多个公理：
+
+​	（1）$P(A^c) = 1 - P(A)$ 这里 $A^c$ 意味着A的补集；
+
+​		可以简单证明：$1=P(S)=P(A^c\bigcup A)=P(A^c)+P(A)$
+
+​	（2）如果 $A\in B$ 那么 $P(A) < P(B)$
+
+​		证明：$B=A\bigcup(B\bigcap A^c) \rightarrow P(B)=P(A)+P(B\bigcap A^c)\geq P(A)$；因为概率处于0~1之间；
+
+​	（3）$P(A\bigcup B) = P(A)+P(B)-P(A\bigcap B)$ 称为包含排除定理
+
+​		证明：
+​		$$A\bigcup B=A\bigcup(B\bigcap A^c) \rightarrow P(A\bigcup B)=P(A)+P(B\bigcap A^c)\\我们可以使用假设法假设P(A)+P(B\bigcap A^c)= P(A)+P(B)-P(A\bigcap B)来进一步证明 \\ P(B)=P(A\bigcap B)+P(B\bigcap A^c)=P(B)$$ 
+
+​		证明成功，我们可以通过Venn图的方法简单求证；
+
+​	由第三个公理推出的公理（4）
+
+​	$P(A\bigcup B\bigcup C) = P(A)+P(B)+P(C)-P(A\bigcap B)-P(A\bigcap C)-P(B\bigcap C)+P(A\bigcap B \bigcap C)$
+
+​		也可以通过Venn图的方法来简单理解求证；
+
+​	由此推出的一般公理
+
+​	$P(A_1\bigcup A_2 \cdot\cdot\bigcup A_n)=\sum_{j=1}^nP(A_j) - \sum_{i<j}P(A_i\bigcap A_j) + \sum_{i<j<k}P(A_i\bigcap A_j\bigcap A_k)+\\ \cdots + (-1)^{n+1}P(A_1\bigcap \cdots\bigcap A_n)$
+
+蒙特洛问题（匹配问题）：有n张标为1到n的卡，我们需要从中抽出n张卡来排成长为n的队列，使得 $A_j$ 为队列的序号j和卡上表的数字j事件，卡上的序号和队列的序号相同的概率为？
+
+​	求解：
+$$
+P(A_j)=\frac{1}{n}=\frac{(n-1)!}{n!}\\
+P(A_i\bigcap A_j) = \frac{(n-2)!}{n!} = \frac{1}{n(n-1)} \\
+\vdots\\
+P(A_1\bigcap \cdots\bigcap A_n) = \frac{(n-k)!}{n!} \\
+$$
+​	由此可以的到概率如下：
+$$
+P(A_1\bigcup A_2\bigcup \cdots\bigcup A_n)=C_n^1P(A_j) - C_n^2P(A_j\bigcap A_k) \cdots +(-1)^{n+1}C_n^nP(A_1\bigcap A_2\bigcap \cdots\bigcap A_n) \\
+=\frac{1}{1!} - \frac{1}{2!} + \frac{1}{3!} +\cdots+ (-1)^{n+1}\frac{1}{n!}\approx1-\frac{1}{e}
+$$
+
+### Lecture 4
