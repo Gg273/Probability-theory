@@ -108,10 +108,48 @@ P(A_i\bigcap A_j) = \frac{(n-2)!}{n!} = \frac{1}{n(n-1)} \\
 \vdots\\
 P(A_1\bigcap \cdots\bigcap A_n) = \frac{(n-k)!}{n!} \\
 $$
-​	由此可以的到概率如下：
+​	由此可以得到概率如下：
 $$
 P(A_1\bigcup A_2\bigcup \cdots\bigcup A_n)=C_n^1P(A_j) - C_n^2P(A_j\bigcap A_k) \cdots +(-1)^{n+1}C_n^nP(A_1\bigcap A_2\bigcap \cdots\bigcap A_n) \\
 =\frac{1}{1!} - \frac{1}{2!} + \frac{1}{3!} +\cdots+ (-1)^{n+1}\frac{1}{n!}\approx1-\frac{1}{e}
 $$
 
 ### Lecture 4
+
+独立性的定义：
+
+A和B具有独立性 $P(A\bigcap B) = P(A)P(B)$
+
+A和B和C具有独立性 $P(A\bigcap B) = P(A)P(B) \ \ P(A\bigcap C) = P(A)P(C) \\ P(B\bigcap C) = P(B)P(C) \ \ P(A\bigcap B \bigcap C) = P(A)P(B)P(C)$
+
+由上面可以易见的推出更多有对象时应该满足的条件；
+
+notes：独立性和不相交完全不一样，虽然看起来似乎很相似，但是不相交中事件A和事件B不会同时发生；
+
+一个著名的例子（Newton-Pepys problem）作为条件概率的认识：
+
+​	一个6面的骰子，摇到每面的概率的相同，记事件A为丢6个骰子，至少有1个为6；记事件B为丢12个骰子，至少有2个为6；记事件C为丢18个骰子，至少有3个为6；三个事件最有可能出现？
+
+​		$P(A) = 1 - (\frac{5}{6})^6 \approx $
+
+​		$P(B) = 1 - (\frac{5}{6})^6 - 12(\frac{1}{6})(\frac{5}{6})^5 \approx $
+
+​		$P(C)= 1 - \sum_{k=0}^2C_{18}^k(\frac{1}{6})^k(\frac{5}{6})^{18-k} \approx $
+
+条件概率：
+
+​	$P(A|B) = \frac{P(A\bigcap B)}{P(B)}$ 
+
+​	有助于条件概率理解的例子：一共10块石头，加起来是1；我们随机选取4块作为事件B，随机选2块作为事件A，这里后来选取的2块刚好在之前选的4块之中的概率就为P(A|B)；我的理解，可以把事件B当作为新的样本空间，把$P(A\bigcap B)$理解为新的样本空间中的新的事件；
+
+几个由条件概率推出的定理：
+
+​	$P(A\bigcap B) = P(A|B)P(B) = P(B|A)P(A) = P(B\bigcap A)$
+
+​	$P(A_1\bigcap A_2\bigcap\cdots\bigcap A_n) = P(A_1)P(A_2|A_1)P(A_3|A_1\bigcap A_2)\cdots P(A_n|A_1\cdots A_{n-1})$
+
+​	贝叶斯（bayes）定律：$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$
+
+### Lecture 5
+
+​	
