@@ -6,13 +6,13 @@
 
 ​	滚动两次四个面的骰子，它的可能结果如下，可以有两种表示的方法：
 
-<img src="W:\printscreen\Probabilistic_mit1.png" alt="Probabilistic_mit1" style="zoom:80%;" />
+<img src="\printscreen\Probabilistic_mit1.png" alt="Probabilistic_mit1" style="zoom:80%;" />
 
 连续的样本空间示例：
 
 ​	对于随机投掷飞镖在一方框中的可能结果为：
 
-<img src="W:\printscreen\Probabilistic_mit2.png" alt="Probabilistic_mit2" style="zoom:80%;" />
+<img src="\printscreen\Probabilistic_mit2.png" alt="Probabilistic_mit2" style="zoom:80%;" />
 
 基本概率公理：
 
@@ -64,13 +64,13 @@ P(A\cap B\cap C) = P((A\cap B)\cap C) = P(A\cap B)P(C|A\cap B) \\
 $$
 可以通过决策树加深理解
 
-<img src="W:\printscreen\Probabilistic_mit3.png" alt="Probabilistic_mit3" style="zoom: 80%;" />
+<img src="\printscreen\Probabilistic_mit3.png" alt="Probabilistic_mit3" style="zoom: 80%;" />
 
 **Total probability theorem 全概率定理：$P(B) = P(B|A_1) + P(B|A_2) + P(B|A_3)$**
 
 这里运用的是分而治之的理解方法，直接上图方便理解
 
-![Probabilistic_mit4](W:\printscreen\Probabilistic_mit4.png)
+![Probabilistic_mit4](\printscreen\Probabilistic_mit4.png)
 
 可以推广到更一般的情况：$对于，不相交的事件A_1\cdots A_n，P(B) = P(B|A_1) +P(B|A_2) + \cdots + P(B|A_n)$
 
@@ -99,7 +99,7 @@ $A_i$导致了B，我们知道了所有情境下B发生的概率
 
 示例：两枚不公平的硬币A和B，$P(H | coin A)=0.9, P(H | coin B)=0.1$ 选两枚硬币的概率相同，可以画出决策图
 
-<img src="W:\printscreen\Probabilistic_mit5.png" alt="Probabilistic_mit5"  />
+<img src="\printscreen\Probabilistic_mit5.png" alt="Probabilistic_mit5"  />
 
 如果我们不知道选取的硬币是哪枚，每次抛硬币时是否具有独立性？
 $$
@@ -114,7 +114,7 @@ $$
 
 示例思考：两公平的抛硬币，记事件A：第一次抛硬币出现的是H，事件B：第二次抛硬币出现的是H，事件C：第一次和第二次抛硬币出现相同的面；
 
-![InkedProbabilistic_mit6](W:\printscreen\InkedProbabilistic_mit6.jpg)
+![InkedProbabilistic_mit6](\printscreen\InkedProbabilistic_mit6.jpg)
 $$
 P(A) = \frac{1}{2} \ \  P(B) = \frac{1}{2} \ \ P(C) = \frac{1}{2} \\
 p(A\cap B) = \frac{1}{4} = P(A)P(B) \\
