@@ -1,4 +1,4 @@
-### Lecture 1
+### Lecture 1 概率模型和公理
 
 **样本空间的定义：**实验的所有可能结果的有限集合，集合中的元素必须是互相排斥的，不能两种结果同时出现，且实验的所有结果必须在这个集合中；
 
@@ -39,7 +39,7 @@ $$
 P(A) = \frac{事件A中的所有结果数}{样本空间中的所有结果数}
 $$
 
-### Lecture 2
+### Lecture 2 条件概率和贝叶斯法则
 
 对于可数可加定理在连续的样本空间中的误区：
 
@@ -89,7 +89,7 @@ $A_i$导致了B，我们知道了所有情境下B发生的概率
 
 于是通过贝叶斯公式，我们就可以得知在B发生的情境下，“原因事件”$A_i$发生的概率
 
-### Lecture 3
+### Lecture 3 独立性
 
 **Independence of two events 对于两个事件的独立性定义：$P(B|A) =P(B) \ or \ P(A\cap B) = P(A)P(B)$ 即事件A发生与否都不影响事件B的发生，事件A和事件B对称成立**
 
@@ -132,7 +132,7 @@ $$
 
 ​	和上面那个问题有一些类似，看似在最右边的门打不开，在最左边和中间的门中选，选中能开的门的概率为1/2；但是在你开始选中的最左边的门是可以打开的门的概率为1/3，选中不可打开的们的概率为2/3，此时在知道最右边的门是不可打开的时候，你换选择中间的门可以打开的概率实际上是2/3；
 
-### Lecture 4
+### Lecture 4 计数
 
 **Discrete uniform law 离散均匀法：让所有样本点发生的概率都相等，然后有 $P(A)=\frac{A的元素数目}{样本点的总数目}=\frac{|A|}{|\Omega|}$**
 
@@ -166,9 +166,36 @@ $$
 (^n_{m_1})(^{n-m_1}_{m_2})\cdots(^{m-\sum_{i=1}^{k-1}m_i}_{m_k}) = \frac{n!}{m_1!(n-m_1)!}\frac{(n-m_1)!}{m_2!(n-m_1-m_2)!}\cdots = \frac{n!}{m_1!m_2!\cdots m_k!}
 $$
 
-### Lecture 5
+### Lecture 5 离散随机变量1
 
+**Random variables 随机变量：对实验的每个可能的结果赋值，从数学上说是一个从样本空间到实数的函数，这个函数（随机变量）可以是离散的（discrete）也可以是连续的（ continue），一个相同的样本空间可以有几个随机变量；我们通常使用符号 $X、x$ 来区分随机变量、数值，**
 
+示例：对于一个班的学生，随机选两个测量他们的身高，分别测得为174cm、178cm；这里的174、178就是我们称之为随机变量高度的数值，也可以选取体重作为另一个随机变量，测得这两个人的体重分别为65kg、70kg；这里的65、70就是另一个随机变量体重的数值；
 
-### Lecture 6
+**Probability mass function（PMF）概率质量函数：对随机变量函数X的概率分布，**
+$$
+p_X(x) = P(X=x) = P(\{\omega \in \Omega  \  \ s.t. \ \ X(\omega) = x\}) \\
+p_X(x) \geq 0 \  \ \ \ \sum_x{p_X(x)} = 1
+$$
+**Expected value of random variable 随机变量的期望值：类似为带权重的平均值，期望值 $E[x] = \sum_xxp_X(x)$**
+
+**expectations 期望：让X成为一个样本空间的随机变量，然后使得 $Y=g(X)$ ，有 $E[Y]=\sum_yyp_Y(y)$  或者 $E[Y]=\sum_xg(x)p_X(x)$ ；通常使用后面的公式进行计算，注意：通常$E[g(X)] \neq g(E[X])$ ，只有在$g(x)$为线性的时候相等；**
+
+期望的线性性质：如果 $\alpha, \beta$ 是常数，那么有以下性质
+$$
+E[\alpha] = \alpha \\
+E[\alpha X] = \sum_xg(x)p_X(x) = \sum_x\alpha xp_X(x) = \alpha \sum_xxp_X(x) \ = \alpha E(X) \\
+E[\alpha X + \beta] = \sum_xg(x)p_X(x) = \sum_x(\alpha x + \beta)p_X(x) = \sum_x\alpha xp_X(x) + \sum_x\beta p_X(x) = \alpha E(X) + \beta
+$$
+**Variance 方差 ：每个数值与期望之间距离的平方的期望值**
+$$
+var(X) = E[(X-E[X])^2] = \sum_x(x-E(X))^2p_X(x) = E[X^2] - (E[X])^2
+$$
+方差的性质有以下
+$$
+var(X) \geq 0 \\
+var(\alpha X + \beta) = \alpha^2 var(X)
+$$
+
+### Lecture 6 离散随机变量2
 
