@@ -6,13 +6,13 @@
 
 ​	滚动两次四个面的骰子，它的可能结果如下，可以有两种表示的方法：
 
-<img src="\printscreen\Probabilistic_mit1.png" alt="Probabilistic_mit1" style="zoom:80%;" />
+<img src="W:\Starting from scratch\math\Probability-theory\printscreen\Probabilistic_mit1.png" alt="Probabilistic_mit1" style="zoom:80%;" />
 
 连续的样本空间示例：
 
 ​	对于随机投掷飞镖在一方框中的可能结果为：
 
-<img src="\printscreen\Probabilistic_mit2.png" alt="Probabilistic_mit2" style="zoom:80%;" />
+<img src="W:\Starting from scratch\math\Probability-theory\printscreen\Probabilistic_mit2.png" alt="Probabilistic_mit2" style="zoom:80%;" />
 
 基本概率公理：
 
@@ -64,13 +64,13 @@ P(A\cap B\cap C) = P((A\cap B)\cap C) = P(A\cap B)P(C|A\cap B) \\
 $$
 可以通过决策树加深理解
 
-<img src="\printscreen\Probabilistic_mit3.png" alt="Probabilistic_mit3" style="zoom: 80%;" />
+<img src="W:\Starting from scratch\math\Probability-theory\printscreen\Probabilistic_mit3.png" alt="Probabilistic_mit3" style="zoom: 80%;" />
 
 **Total probability theorem 全概率定理：$P(B) = P(B|A_1) + P(B|A_2) + P(B|A_3)$**
 
 这里运用的是分而治之的理解方法，直接上图方便理解
 
-![Probabilistic_mit4](\printscreen\Probabilistic_mit4.png)
+![Probabilistic_mit4](W:\Starting from scratch\math\Probability-theory\printscreen\Probabilistic_mit4.png)
 
 可以推广到更一般的情况：$对于，不相交的事件A_1\cdots A_n，P(B) = P(B|A_1) +P(B|A_2) + \cdots + P(B|A_n)$
 
@@ -99,7 +99,7 @@ $A_i$导致了B，我们知道了所有情境下B发生的概率
 
 示例：两枚不公平的硬币A和B，$P(H | coin A)=0.9, P(H | coin B)=0.1$ 选两枚硬币的概率相同，可以画出决策图
 
-<img src="\printscreen\Probabilistic_mit5.png" alt="Probabilistic_mit5"  />
+<img src="W:\Starting from scratch\math\Probability-theory\printscreen\Probabilistic_mit5.png" alt="Probabilistic_mit5"  />
 
 如果我们不知道选取的硬币是哪枚，每次抛硬币时是否具有独立性？
 $$
@@ -114,7 +114,7 @@ $$
 
 示例思考：两公平的抛硬币，记事件A：第一次抛硬币出现的是H，事件B：第二次抛硬币出现的是H，事件C：第一次和第二次抛硬币出现相同的面；
 
-![InkedProbabilistic_mit6](\printscreen\InkedProbabilistic_mit6.jpg)
+![InkedProbabilistic_mit6](W:\Starting from scratch\math\Probability-theory\printscreen\InkedProbabilistic_mit6.jpg)
 $$
 P(A) = \frac{1}{2} \ \  P(B) = \frac{1}{2} \ \ P(C) = \frac{1}{2} \\
 p(A\cap B) = \frac{1}{4} = P(A)P(B) \\
@@ -166,7 +166,7 @@ $$
 (^n_{m_1})(^{n-m_1}_{m_2})\cdots(^{m-\sum_{i=1}^{k-1}m_i}_{m_k}) = \frac{n!}{m_1!(n-m_1)!}\frac{(n-m_1)!}{m_2!(n-m_1-m_2)!}\cdots = \frac{n!}{m_1!m_2!\cdots m_k!}
 $$
 
-### Lecture 5 离散随机变量1
+### Lecture 5 离散随机变量，概率质量函数，期望
 
 **Random variables 随机变量：对实验的每个可能的结果赋值，从数学上说是一个从样本空间到实数的函数，这个函数（随机变量）可以是离散的（discrete）也可以是连续的（ continue），一个相同的样本空间可以有几个随机变量；我们通常使用符号 $X、x$ 来区分随机变量、数值，**
 
@@ -197,5 +197,64 @@ var(X) \geq 0 \\
 var(\alpha X + \beta) = \alpha^2 var(X)
 $$
 
-### Lecture 6 离散随机变量2
+$X$ 的标准偏差：$\sigma_X = \sqrt{var(X)}$
 
+### Lecture 6 离散随机变量实例，联合概率质量函数
+
+对于函数的期望和期望的函数通常不相等的实例：一段200km的路程，有两种等可能的方式到达目的地，一种是速度 $V$ 为1km/h，一种是200km/h的方式；$d=200, T=t(V)=200/V$
+$$
+E[V] = \frac{1}{2}*1 + \frac{1}{2}*200 = 100.5 \\
+var(V) = \frac{1}{2}*(1-100.5)^2 + \frac{1}{2}*(200-100.5)^2 \approx 100^2 \\
+\sigma_V = \sqrt{var_V} = 100
+E[T] = E[t(V)] = \sum_vt(v)p_V(v) = \frac{1}{2}*200 + \frac{1}{2}*1 = 100.5 \\
+E[TV] = 200 \neq E[T]E[V] = 10000 \\
+E[200/V] = E[T] = 100.5 \neq 200/E[v] \approx 2
+$$
+**Conditional PMF and expectation 条件PMF和期望**
+$$
+p_{X|A}(x) = P(X=x|A) \\
+E[X|A] = \sum_Xxp_{X|A}(x) \\
+E[g(x)|A] = \sum_Xg(x)p_{X|A}(x)
+$$
+条件PMF和期望的实例：
+
+![Probabilistic_mit7](W:\Starting from scratch\math\Probability-theory\printscreen\Probabilistic_mit7.png)
+
+使得事件 $A = (X \geq 2)$
+$$
+p_{X|A}(x) = \frac{1}{3} \tag{x=2,3,4} \\
+E[X|A] = 2*\frac{1}{3} + 3*\frac{1}{3} + 4*\frac{1}{3} = 3
+$$
+
+**Geometric PMF 几何PMF**
+
+实例：记事件X为直到第一个正面朝上的独立抛硬币次数，则有以下
+$$
+p_X(k) = (1-p)^{k-1}p  \tag{k=1,2,3...} \\
+E[X] = \sum_{k=1}^\infty kp_X(k) = \sum_{k=1}^\infty k(1-p)^{k-1}p
+$$
+Memoryless property：Given that X > 2, the r.v. X − 2 has same geometric PMF
+
+<img src="W:\Starting from scratch\math\Probability-theory\printscreen\Probabilistic_mit8.png" alt="Probabilistic_mit8" style="zoom:80%;" />
+
+**Total Expectation theorem 总期望定理**
+$$
+对于P(B) = P(A_1)P(B|A_1) + \cdots + P(A_n)P(B|A_n) \\
+有p_X(x) = P(A_1)p_{X|A_1}(x) + \cdots + P(A_n)p_{X|A_n}(x) \\
+和E[X] = P(A_1)E[X|A_1] + \cdots + P(X_n)E[X|A_n]
+$$
+几何实例：记事件X为直到第一个正面朝上的独立抛硬币次数，$A_1 : \{X=1\}$ ，$A_2 : \{X>1\}$
+$$
+E[X] = P(X=1)E[X|X=1] + P(X>1)E[X|X>1]\\ 
+= p*1 + (1-p)*(E[X-1|X-1>0] + 1) \\
+= p*1 + (1-p)*(E[X] + 1)   \\ \downarrow \\
+E[X]= \frac{1}{p}
+$$
+**Joint PMFs 联合PMF**
+$$
+p_{X,Y}(x,y) = P(X=x  \ and  \ Y=y) \\
+p_X(x) = \sum_yp_{X,Y}(x,y) \\
+p_{X|Y}(x|y) = P(X=x|Y=y) = \frac{p_{X,Y}(x,y)}{p_Y(y)}
+$$
+
+### Lecture 7 连续随机变量
